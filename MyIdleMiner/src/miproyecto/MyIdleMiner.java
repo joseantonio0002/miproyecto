@@ -10,7 +10,8 @@ package miproyecto;
  */ 
 public class MyIdleMiner {
 
-
+//Atributos
+    
 public class Oro {
 
     public static final String ICONO = "/img/oro.png";
@@ -24,6 +25,32 @@ public class Oro {
     private int experienciaRecolecta;
     private int precioVenta;
     private int minar;
-}
-}
 
+
+
+//Constructores
+
+    public Oro(String icono, int duracionProduccion, int experienciaRecolecta, int precioVenta, int minar){
+    
+        this.icono = icono;
+        this.duracionProduccion = duracionProduccion;
+        this.experienciaRecolecta = experienciaRecolecta;
+        this.precioVenta = precioVenta;
+        this.minar = minar;
+    }
+    
+    public Oro(){
+        
+    }
+    
+    public Oro(Oro otro){
+        
+        this(otro.icono, otro.duracionProduccion, otro.experienciaRecolecta, otro.precioVenta, otro.minar);
+    }
+    
+    
+    
+    
+    }
+
+}
