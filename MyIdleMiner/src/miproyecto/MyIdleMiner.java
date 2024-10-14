@@ -60,6 +60,56 @@ public class Oro {
             sb.append('}');
             return sb.toString();
         }
+        
+        public void setIcono(String Icono){
+            
+            this.icono = Icono;
+        }
+        
+        public void setprecioVenta(int precio){
+            
+            this.precioVenta = precio;
+        }
+        
+        public void setduracionProduccion(int duracion){
+            
+            this.duracionProduccion = duracion;
+        }
+        
+        public void setminar(int Minar){
+            
+            this.minar = Minar;
+        }
+        
+        public void setexperienciaRecolecta(int experiencia){
+            
+            this.experienciaRecolecta = experiencia;
+        }
+        
+        public String getIcono(){
+            
+            return icono;
+        }
+        
+        public int getprecioVenta(){
+            
+            return precioVenta;
+        }
+        
+        public int getduracionProduccion(){
+            
+            return duracionProduccion;
+        }
+        
+        public int getminar(){
+            
+            return minar;
+        }
+        
+        public int getexperienciaRecolecta(){
+            
+            return experienciaRecolecta;
+        }
     
     
     }
@@ -69,12 +119,29 @@ public class Oro {
         MyIdleMiner idleMiner = new MyIdleMiner();
         
         Oro o1 = idleMiner.new Oro();
-        Oro o2 = idleMiner.new Oro(Oro.ICONO, 3, 10, 20, 1);
+        Oro o2 = idleMiner.new Oro(Oro.ICONO, 5, 10, 20, 1);
         Oro o3 = idleMiner.new Oro(o1);
         
         System.out.println(o1);
         System.out.println(o2);
         System.out.println(o3);
+        
+        System.out.println("Precio: " + o1.getprecioVenta());
+        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
+        System.out.println("Exp: " + o1.getexperienciaRecolecta());
+        System.out.println("Icono: " + o1.getIcono());
+        System.out.println("Minar: " + o1.getminar());
+        
+        o1.setprecioVenta(5);
+        System.out.println("Precio: " + o1.getprecioVenta());
+        
+        o1.setduracionProduccion(10);
+        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
+        
+        o1.setexperienciaRecolecta(20);
+        System.out.println("Exp: " + o1.getexperienciaRecolecta());
+        
+        System.out.println(o1);
         
     }
 
