@@ -30,6 +30,7 @@ public class Oro {
     private int experienciaRecolecta;
     private int precioVenta;
     private int minar;
+    private TipoMinar tipo;
 
 
 
@@ -42,6 +43,7 @@ public class Oro {
         this.experienciaRecolecta = experienciaRecolecta;
         this.precioVenta = precioVenta;
         this.minar = minar;
+        this.tipo = TipoMinar.ORO;
     }
     
     public Oro(){
@@ -62,6 +64,7 @@ public class Oro {
             sb.append(", experienciaRecolecta=").append(experienciaRecolecta);
             sb.append(", precioVenta=").append(precioVenta);
             sb.append(", minar=").append(minar);
+            sb.append(", tipo=").append(tipo);
             sb.append('}');
             return sb.toString();
         }
@@ -114,6 +117,11 @@ public class Oro {
         public int getexperienciaRecolecta(){
             
             return experienciaRecolecta;
+        }
+        
+        public TipoMinar getTipo(){
+            
+            return tipo;
         }
     
     
