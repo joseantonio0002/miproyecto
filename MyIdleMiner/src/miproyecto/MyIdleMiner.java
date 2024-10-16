@@ -11,6 +11,11 @@ package miproyecto;
 public class MyIdleMiner {
 
 //Atributos
+ 
+public enum TipoMinar{
+    ORO,
+    DIAMANTE
+}
     
 public class Oro {
 
