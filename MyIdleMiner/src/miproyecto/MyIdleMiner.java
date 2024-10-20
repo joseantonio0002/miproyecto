@@ -4,11 +4,17 @@
  */
 package miproyecto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author frama
  */ 
 public class MyIdleMiner {
+
+    private List<Oro> picarOro;
+    private ArrayList<Object> picarDiamante;
 
 //Atributos
  
@@ -295,7 +301,100 @@ public class Diamante {
         
         System.out.println(o1);
         
-    }       
+    }
+    
+    
+    public class minero{
+        
+        public static final int MAX_PICAR = 1;
+        public static final int CAPACIDAD = 2;
+        
+        private List<Oro> picarOro;
+        private List<Diamante> picarDiamante;
+    
+     public minero(){
+         
+         this.picarOro = new ArrayList<>();
+         this.picarDiamante = new ArrayList<>();
+        }
+    
+    
+    public List<Oro> getPicarOro(){
+        
+        return picarOro;
+    }
+    
+    public List<Diamante> getPicarDiamante(){
+        
+        return picarDiamante;
+    }
+    
+    //Funcionalidades
+    
+    public boolean puedePicar(){
+        
+        return puedePicarOro() || puedePicarDiamante();
+    }
+    
+    public boolean puedePicarOro(){
+        
+        return picarOro.size() < MAX_PICAR && picarDiamante.isEmpty();
+    }
+    
+    public boolean puedePicarDiamante(){
+        
+        return picarDiamante.size() < MAX_PICAR && picarOro.isEmpty();
+    }
+    
+    public void minarOro(Oro esteOro){
+        
+        if(puedePicar()){
+            picarOro.add(esteOro);
+        }
+    }
+    
+    public void recogerOro(Oro esteOro){
+        
+        picarOro.remove(esteOro);
+    }
+    
+    public void minarDiamante(Diamante esteDiamante){
+        
+        if(puedePicar()){
+            picarDiamante.add(esteDiamante);
+        }
+    }
+    
+    public void recogerDiamante(Diamante esteDiamante){
+        
+        picarDiamante.remove(esteDiamante);
+    }
+    
+    public boolean estaPicandoOro(){
+        
+        return !picarOro.isEmpty();
+    }
+    
+    public boolean estaPicandoDiamante(){
+        
+        return !picarDiamante.isEmpty();
+    }
+    
+    public boolean estaPicando(){
+        
+        return estaPicandoOro() || estaPicandoDiamante();
+    }
+    
+    public Oro getPrimerPicarOro(){
+        
+        return this.picarOro.get(0);
+    }
+    
+    public Diamante getPrimerPicarDiamante(){
+        
+        return this.picarDiamante.get(0);
+    }
 
+    }
 
 }
