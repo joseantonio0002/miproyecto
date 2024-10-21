@@ -13,9 +13,6 @@ import java.util.List;
  */ 
 public class MyIdleMiner {
 
-    private List<Oro> picarOro;
-    private ArrayList<Object> picarDiamante;
-
 //Atributos
  
 public enum TipoMinar{
@@ -242,69 +239,10 @@ public class Diamante {
         return tipo;
     }
     
-}
+}   
+    
 
-    public static void main(String[] args){
-        
-        MyIdleMiner idleMiner = new MyIdleMiner();
-        
-        Oro o1 = idleMiner.new Oro();
-        Oro o2 = idleMiner.new Oro(Oro.ICONO, 2, 1, 2, 10);
-        Oro o3 = idleMiner.new Oro(o1);
-        Diamante d1 = idleMiner.new Diamante();
-        Diamante d2 = idleMiner.new Diamante(Diamante.ICONO, 5, 2, 3, 20);
-        Diamante d3 = idleMiner.new Diamante(d1);
-        
-        System.out.println(o1);
-        System.out.println(o2);
-        System.out.println(o3);
-        
-        System.out.println(d1);
-        System.out.println(d2);
-        System.out.println(d3);
-        
-        System.out.println("Precio: " + o1.getprecioVenta());
-        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
-        System.out.println("Exp: " + o1.getexperienciaRecolecta());
-        System.out.println("Icono: " + o1.getIcono());
-        System.out.println("Minar: " + o1.getminar());
-        
-        System.out.println("Precio: " + d1.getprecioVenta());
-        System.out.println("Duracion de la produccion: " + d1.getduracionProduccion());
-        System.out.println("Exp: " + d1.getexperienciaRecolecta());
-        System.out.println("Icono: " + d1.getIcono());
-        System.out.println("Minar: " + d1.getminar());
-        
-        o1.setprecioVenta(2);
-        System.out.println("Precio: " + o1.getprecioVenta());
-        
-        d1.setprecioVenta(3);
-        System.out.println("Precio: " + d1.getprecioVenta());
-        
-        o1.setduracionProduccion(2);
-        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
-        
-        d1.setduracionProduccion(5);
-        System.out.println("Duracion de la produccion: " + d1.getduracionProduccion());
-        
-        o1.setexperienciaRecolecta(1);
-        System.out.println("Exp: " + o1.getexperienciaRecolecta());
-        
-        d1.setexperienciaRecolecta(2);
-        System.out.println("Exp: " + d1.getexperienciaRecolecta());
-        
-        o1.setminar(10);
-        System.out.println("Min: " + o1.getminar());
-        
-        d1.setminar(20);
-        System.out.println("Min: " + d1.getminar());
-        
-        System.out.println(o1);
-               
-    }
-    
-    
-    public class minero{
+    public class Minero{
         
         public static final int MAX_PICAR = 1;
         public static final int CAPACIDAD = 2;
@@ -312,13 +250,13 @@ public class Diamante {
         private List<Oro> picarOro;
         private List<Diamante> picarDiamante;
     
-     public minero(){
-         
+     public Minero(){
+
          this.picarOro = new ArrayList<>();
          this.picarDiamante = new ArrayList<>();
         }
-    
-    
+
+      
     public List<Oro> getPicarOro(){
         
         return picarOro;
@@ -387,14 +325,127 @@ public class Diamante {
     
     public Oro getPrimerPicarOro(){
         
-        return this.picarOro.get(0);
+        return this.picarOro.isEmpty() ? null : this.picarOro.get(0);
     }
     
     public Diamante getPrimerPicarDiamante(){
         
-        return this.picarDiamante.get(0);
+        return this.picarDiamante.isEmpty() ? null : this.picarDiamante.get(0);
     }
 
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Minero{");
+            sb.append("picarOro=").append(picarOro);
+            sb.append(", picarDiamante=").append(picarDiamante);
+            sb.append('}');
+            return sb.toString();
+        }
+    
+
+    }
+    
+    
+    public static void main(String[] args){
+        
+        MyIdleMiner idleMiner = new MyIdleMiner();
+        
+        Oro o1 = idleMiner.new Oro();
+        Oro o2 = idleMiner.new Oro(Oro.ICONO, 2, 1, 2, 10);
+        Oro o3 = idleMiner.new Oro(o1);
+        Diamante d1 = idleMiner.new Diamante();
+        Diamante d2 = idleMiner.new Diamante(Diamante.ICONO, 5, 2, 3, 20);
+        Diamante d3 = idleMiner.new Diamante(d1);
+
+        
+        System.out.println(o1);
+        System.out.println(o2);
+        System.out.println(o3);
+        
+        System.out.println(d1);
+        System.out.println(d2);
+        System.out.println(d3);
+        
+        System.out.println("Precio: " + o1.getprecioVenta());
+        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
+        System.out.println("Exp: " + o1.getexperienciaRecolecta());
+        System.out.println("Icono: " + o1.getIcono());
+        System.out.println("Minar: " + o1.getminar());
+        
+        System.out.println("Precio: " + d1.getprecioVenta());
+        System.out.println("Duracion de la produccion: " + d1.getduracionProduccion());
+        System.out.println("Exp: " + d1.getexperienciaRecolecta());
+        System.out.println("Icono: " + d1.getIcono());
+        System.out.println("Minar: " + d1.getminar());
+        
+        o1.setprecioVenta(2);
+        System.out.println("Precio: " + o1.getprecioVenta());
+        
+        d1.setprecioVenta(3);
+        System.out.println("Precio: " + d1.getprecioVenta());
+        
+        o1.setduracionProduccion(2);
+        System.out.println("Duracion de la produccion: " + o1.getduracionProduccion());
+        
+        d1.setduracionProduccion(5);
+        System.out.println("Duracion de la produccion: " + d1.getduracionProduccion());
+        
+        o1.setexperienciaRecolecta(1);
+        System.out.println("Exp: " + o1.getexperienciaRecolecta());
+        
+        d1.setexperienciaRecolecta(2);
+        System.out.println("Exp: " + d1.getexperienciaRecolecta());
+        
+        o1.setminar(10);
+        System.out.println("Min: " + o1.getminar());
+        
+        d1.setminar(20);
+        System.out.println("Min: " + d1.getminar());
+        
+        System.out.println(o1);
+        
+        
+        Minero m1 = idleMiner.new Minero();
+        Minero m2 = idleMiner.new Minero();
+        Minero m3 = idleMiner.new Minero();
+        
+        
+        System.out.println();
+        System.out.println("Minero 1: " + m1);
+        System.out.println("Minero 2: " + m2);
+        System.out.println("Minero 3: " + m3);
+        
+        System.out.println("¿m1 puede picar? " + m1.puedePicar());
+        System.out.println("¿m2 puede picar? " + m2.puedePicar());
+        System.out.println("¿m3 puede picar? " + m3.puedePicar());
+        
+        m1.minarOro(o1);
+        System.out.println("Minero 1: " + m1);
+        System.out.println("¿m1 puede picar? " + m1.puedePicar());
+        m1.minarOro(o1);
+        System.out.println("Minero 1: " + m1);
+        m1.minarOro(o2);
+        System.out.println("Minero 1: " + m1);
+        m1.minarDiamante(d2);
+        System.out.println("Minero 1: " + m1);
+        
+        m2.minarDiamante(d2);
+        System.out.println("Minero 2: " + m2);
+        
+        
+        System.out.println("Minero 1 ¿picando?: " + m1.estaPicando());
+        System.out.println("Minero 1 ¿pica oro?: " + m1.estaPicandoOro());
+        System.out.println("Minero 1 ¿pica diamante?: " + m1.estaPicandoDiamante());
+        System.out.println("Minero 2 ¿pica oro?: " + m2.estaPicandoOro());
+        System.out.println("Minero 2 ¿pica diamante?: " + m2.estaPicandoDiamante());
+        
+        
+        System.out.println("Minero 1 primer oro: " + m1.getPrimerPicarOro());
+        System.out.println("Minero 1 primer diamante: " + m1.getPrimerPicarDiamante());
+        System.out.println("Minero 2 primer oro: " + m2.getPrimerPicarOro());
+        System.out.println("Minero 2 primer diamante: " + m2.getPrimerPicarDiamante());
+               
     }
 
 }
