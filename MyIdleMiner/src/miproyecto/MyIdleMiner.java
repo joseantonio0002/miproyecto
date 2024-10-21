@@ -300,7 +300,7 @@ public class Diamante {
         System.out.println("Min: " + d1.getminar());
         
         System.out.println(o1);
-        
+               
     }
     
     
